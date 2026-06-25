@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>华体会 · 站点印象</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: linear-gradient(145deg, #fce9d8 0%, #f7d9c4 40%, #efc8b2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1.5rem;
+            line-height: 1.7;
+            color: #2b2b2b;
+        }
+
+        .magazine {
+            max-width: 820px;
+            width: 100%;
+            background: #fffffffa;
+            backdrop-filter: blur(1px);
+            border-radius: 40px 40px 32px 32px;
+            box-shadow: 0 20px 40px -12px rgba(120, 70, 40, 0.25), 0 8px 20px rgba(0,0,0,0.05);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .hero {
+            background: #f0d5c0;
+            background-image: radial-gradient(circle at 10% 30%, #f3dfd0 0%, #eacbb4 80%);
+            padding: 3rem 2.5rem 2.2rem;
+            text-align: center;
+            border-bottom: 1px solid #e6cbb7;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            color: #3d291f;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 2px 4px rgba(245, 210, 180, 0.3);
+        }
+
+        .hero .sub {
+            font-size: 1rem;
+            color: #5b3e2e;
+            background: rgba(255, 242, 232, 0.6);
+            display: inline-block;
+            padding: 0.3rem 1.5rem;
+            border-radius: 40px;
+            backdrop-filter: blur(4px);
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+
+        .content {
+            padding: 2.5rem 2.5rem 2rem;
+        }
+
+        .content p {
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+            color: #3a3029;
+        }
+
+        .content p:last-of-type {
+            margin-bottom: 2rem;
+        }
+
+        .card-highlight {
+            background: #fbf3ed;
+            border-radius: 28px;
+            padding: 1.8rem 2rem;
+            margin: 1.8rem 0 1.2rem;
+            border: 1px solid #eedbcb;
+        }
+
+        .card-highlight h3 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #4b3428;
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+            border-left: 4px solid #dba784;
+            padding-left: 1rem;
+        }
+
+        .feature-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            margin-top: 0.5rem;
+        }
+
+        .feature-item {
+            background: white;
+            border-radius: 60px;
+            padding: 0.6rem 1.6rem;
+            font-size: 0.95rem;
+            box-shadow: 0 2px 6px rgba(150, 100, 70, 0.08);
+            border: 1px solid #e6d2c2;
+            color: #3f3229;
+            transition: all 0.2s ease;
+        }
+
+        .feature-item:hover {
+            background: #e6cdbb;
+            border-color: #c9a88e;
+            color: #1f150f;
+        }
+
+        .faq-mini {
+            margin-top: 1.8rem;
+            border-top: 1px dashed #dec3b0;
+            padding-top: 1.5rem;
+        }
+
+        .faq-mini details {
+            margin-bottom: 0.8rem;
+            border-radius: 18px;
+            background: #f6ede7;
+            padding: 0.6rem 1.2rem;
+            cursor: pointer;
+            transition: background 0.15s;
+        }
+
+        .faq-mini details[open] {
+            background: #efe2d8;
+        }
+
+        .faq-mini summary {
+            font-weight: 500;
+            color: #3f2d22;
+            font-size: 1rem;
+            padding: 0.2rem 0;
+        }
+
+        .faq-mini details p {
+            margin: 0.5rem 0 0.2rem;
+            font-size: 0.95rem;
+            color: #4f3d31;
+            padding-left: 0.3rem;
+        }
+
+        .visit-footer {
+            background: #f0d9ca;
+            padding: 1.5rem 2.5rem;
+            text-align: center;
+            border-top: 1px solid #dfc6b4;
+            margin-top: 0.5rem;
+        }
+
+        .visit-footer .link-sentence {
+            background: white;
+            display: inline-block;
+            padding: 0.6rem 2.6rem;
+            border-radius: 60px;
+            box-shadow: 0 4px 10px rgba(130, 80, 50, 0.1);
+            font-size: 1.1rem;
+            color: #2b1e16;
+            border: 1px solid #dbbca8;
+            transition: 0.2s;
+        }
+
+        .visit-footer .link-sentence:hover {
+            background: #f9efe8;
+            border-color: #b59079;
+            transform: scale(1.02);
+            box-shadow: 0 6px 16px rgba(140, 90, 60, 0.15);
+        }
+
+        .visit-footer a {
+            text-decoration: none;
+            font-weight: 500;
+            color: #8b5a3b;
+            border-bottom: 1px dotted #b88d72;
+            transition: color 0.2s, border-color 0.2s;
+        }
+
+        .visit-footer a:hover {
+            color: #5d3421;
+            border-bottom: 1px solid #7b4d31;
+        }
+
+        .small-note {
+            margin-top: 0.9rem;
+            font-size: 0.82rem;
+            color: #6a5547;
+            letter-spacing: 0.3px;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .content, .hero, .visit-footer {
+                padding-left: 1.5rem;
+                padding-right: 1.5rem;
+            }
+            .feature-grid {
+                gap: 0.8rem;
+            }
+            .feature-item {
+                padding: 0.4rem 1.2rem;
+                font-size: 0.85rem;
+            }
+            .card-highlight {
+                padding: 1.2rem 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="magazine">
+    <!-- 首页横幅 hero -->
+    <div class="hero">
+        <h1>华体会</h1>
+        <div class="sub">日常的质感 · 可信的陪伴</div>
+    </div>
+
+    <!-- 内容主体 -->
+    <div class="content">
+        <p>在信息纷杂的网络里，找到一个让自己觉得踏实、自然的站点并不容易。<strong>华体会</strong>从创立之初就希望提供一种不喧哗、不打扰的浏览氛围，无论是界面还是内容，都更偏向于简洁与可靠。没有浮夸的跳转，没有杂乱的弹窗，每一步都清晰可见。</p>
+
+        <p>站点的背后是一套稳定的技术框架，日常更新与维护都由同一团队长期负责。从页面加载到信息呈现，每一个细节都经过反复打磨，力求在「好用」和「安心」之间找到平衡。很多用户第一次打开时，会觉得熟悉——这种熟悉，来自对用户体验的持续尊重。</p>
+
+        <!-- 背景说明：用卡片承载 -->
+        <div class="card-highlight">
+            <h3>✦ 背景与日常</h3>
+            <div class="feature-grid">
+                <span class="feature-item">持续维护 · 版本稳定</span>
+                <span class="feature-item">界面克制 · 减少干扰</span>
+                <span class="feature-item">信息透明 · 无隐藏逻辑</span>
+                <span class="feature-item">多端适应 · 手机友好</span>
+                <span class="feature-item">反馈及时 · 团队在线</span>
+            </div>
+            <p style="margin-top: 1.2rem; margin-bottom: 0.2rem; font-size: 0.98rem;">技术只是底色，更重要的是日常运营中积累的信任。没有谁天生可靠，但时间会说明一切。</p>
+        </div>
+
+        <p>不少朋友是从身边人推荐而来的，他们说，在这里不用费心辨别真假，也不用担心链接会指向奇怪的地方。这种口口相传的认可，比任何广告都有分量。我们也始终提醒自己：保持页面干净，比追逐流量更重要。</p>
+
+        <!-- FAQ 摘要 -->
+        <div class="faq-mini">
+            <details>
+                <summary>华体会是什么类型的站点？</summary>
+                <p>一个提供信息浏览与内容查阅的线上空间，专注界面友好与内容可信，没有复杂的商业嵌套。</p>
+            </details>
+            <details>
+                <summary>站点的内容更新频率如何？</summary>
+                <p>长期维护，内容按实际需求更新，不堆砌、不注水，每次调整都经过测试。</p>
+            </details>
+            <details>
+                <summary>是否可以在手机上正常浏览？</summary>
+                <p>响应式设计，手机、平板、电脑均可获得舒适的阅读体验。</p>
+            </details>
+        </div>
+    </div>
+
+    <!-- 页尾访问提示：自然嵌入链接 -->
+    <div class="visit-footer">
+        <div class="link-sentence">
+            <span>想了解更多，可直接前往 </span>
+            <a href="https://h5-hthty.com">华体会</a>
+            <span> · 看看它的模样</span>
+        </div>
+        <div class="small-note">
+            不刻意、不打扰，只做一个可靠的站点。
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
